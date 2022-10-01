@@ -19,5 +19,7 @@ public class UserRegistrationProblemUC1 {
     public static void main(String[] args) {
         UserRegistrationProblemUC1 myFirstName = new UserRegistrationProblemUC1();
         System.out.println(myFirstName.firstName("Tom"));// enter first name only 3 characters with first letter Cap
+        UserRegistrationProblemUC1 myLastName = new UserRegistrationProblemUC1();
+        System.out.println(myLastName.lastName("Ben"));
     }
 }

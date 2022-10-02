@@ -50,28 +50,29 @@ public class UserRegistrationProblemUC1Test {
         boolean returnResult = myLastName.firstName("AJ");
         Assert.assertFalse(returnResult);
     }
-      //UC-3 As a User need to enter
+    //UC-3 As a User need to enter
 
     //  a valid email//- E.g. abc.xyz@bl.co.in -
     //  Email has 3 mandatory parts (abc, bl& co) and
     //  2 optional (xyz & in) with precise @ and . positions
     @Test
-    public void check_given_email_ID(){
-        UserRegistrationProblemUC1 myEmailID=new UserRegistrationProblemUC1();
-        boolean returnResult=myEmailID.emailID("Max.123@gmail.com");
+    public void check_given_email_ID() {
+        UserRegistrationProblemUC1 myEmailID = new UserRegistrationProblemUC1();
+        boolean returnResult = myEmailID.emailID("Max.123@gmail.com");
         Assert.assertTrue(returnResult);
     }
 
     @Test
-    public void checking_given_email_ID_by_changing_dot_position_return_false(){
-        UserRegistrationProblemUC1 myEmailID=new UserRegistrationProblemUC1();
-        boolean returnResult=myEmailID.emailID("gmail.com123.max@");
+    public void checking_given_email_ID_by_changing_dot_position_return_false() {
+        UserRegistrationProblemUC1 myEmailID = new UserRegistrationProblemUC1();
+        boolean returnResult = myEmailID.emailID("gmail.com123.max@");
         Assert.assertFalse(returnResult);
     }
+
     @Test
-    public void checking_given_email_ID_by_changing_special_character_position_return_false(){
-        UserRegistrationProblemUC1 myEmailID= new UserRegistrationProblemUC1();
-        boolean returnResult=myEmailID.emailID("gmailxyz123.com@");
+    public void checking_given_email_ID_by_changing_special_character_position_return_false() {
+        UserRegistrationProblemUC1 myEmailID = new UserRegistrationProblemUC1();
+        boolean returnResult = myEmailID.emailID("gmailxyz123.com@");
         Assert.assertFalse(returnResult);
     }
 
@@ -79,40 +80,66 @@ public class UserRegistrationProblemUC1Test {
     //Mobile Format - E.g. 91 9919819801 - Country code follow by space and 10 digit number
 
     @Test
-    public void checking_given_phone_number(){
-        UserRegistrationProblemUC1 myPhoneNumber=new UserRegistrationProblemUC1();
-        boolean returnResult=myPhoneNumber.phoneNumber("91-9695795784");
+    public void checking_given_phone_number() {
+        UserRegistrationProblemUC1 myPhoneNumber = new UserRegistrationProblemUC1();
+        boolean returnResult = myPhoneNumber.phoneNumber("91-9695795784");
         Assert.assertTrue(returnResult);
     }
-@Test
-    public void checking_space_between_country_code_space(){
-        UserRegistrationProblemUC1 myPhoneNumber=new UserRegistrationProblemUC1();
-        boolean returnResult=myPhoneNumber.phoneNumber("91 9675859948");
+
+    @Test
+    public void checking_space_between_country_code_space() {
+        UserRegistrationProblemUC1 myPhoneNumber = new UserRegistrationProblemUC1();
+        boolean returnResult = myPhoneNumber.phoneNumber("91 9675859948");
         Assert.assertTrue(returnResult);
     }
+
     @Test
-    public void checking_less_than_10_digit_phone_number_return_false(){
-        UserRegistrationProblemUC1 myPhoneNumber=new UserRegistrationProblemUC1();
-        boolean returnResult= myPhoneNumber.phoneNumber("91 98675845");
+    public void checking_less_than_10_digit_phone_number_return_false() {
+        UserRegistrationProblemUC1 myPhoneNumber = new UserRegistrationProblemUC1();
+        boolean returnResult = myPhoneNumber.phoneNumber("91 98675845");
         Assert.assertFalse(returnResult);
     }
+
+    //UC-5 As a User need to follow pre-defined Password rules.
+    //Rule1– minimum 8 Characters - NOTE – All rules must be passed
     @Test
-    public void checking_8_characters_password_return_true(){
-        UserRegistrationProblemUC1 myPassword=new UserRegistrationProblemUC1();
-        boolean returnResult=myPassword.password("Validate");
-            Assert.assertTrue(returnResult);
-        }
-        @Test
-        public void checking_More_than_8_character_password_return_false(){
-        UserRegistrationProblemUC1 myPassword=new UserRegistrationProblemUC1();
-        boolean returnResult=myPassword.password("Sufficient");
+    public void checking_8_characters_password_return_true() {
+        UserRegistrationProblemUC1 myPassword = new UserRegistrationProblemUC1();
+        boolean returnResult = myPassword.password("Validate");
+        Assert.assertTrue(returnResult);
+    }
+
+    @Test
+    public void checking_More_than_8_character_password_return_false() {
+        UserRegistrationProblemUC1 myPassword = new UserRegistrationProblemUC1();
+        boolean returnResult = myPassword.password("Sufficient");
         Assert.assertFalse(returnResult);
-            }
-            @Test
-            public void checking_less_Than_8_character_password_return_false(){
-        UserRegistrationProblemUC1 myPassword=new UserRegistrationProblemUC1();
-        boolean returnResult=myPassword.password("cool");
+    }
+
+    @Test
+    public void checking_less_Than_8_character_password_return_false() {
+        UserRegistrationProblemUC1 myPassword = new UserRegistrationProblemUC1();
+        boolean returnResult = myPassword.password("cool");
         Assert.assertFalse(returnResult);
-            }
-        }
+    }
+
+    // UC-6 Should have at least 1
+    ///Upper Case - NOTE – All rules must be passed
+    @Test
+    public void checking_upperCase_character_password_return_true() {
+        UserRegistrationProblemUC1 myPasswordRule = new UserRegistrationProblemUC1();
+        boolean returnResult = myPasswordRule.passwordRule2("Validate");
+        Assert.assertTrue(returnResult);
+    }
+
+    @Test
+    public void checking_without_uppercase_character_password_return_false() {
+        UserRegistrationProblemUC1 myPasswordRule = new UserRegistrationProblemUC1();
+        boolean returnResult = myPasswordRule.passwordRule2("validate");
+        Assert.assertFalse(returnResult);
+    }
+}
+
+
+
 

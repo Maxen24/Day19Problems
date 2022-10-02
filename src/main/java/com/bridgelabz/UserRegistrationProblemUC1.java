@@ -11,7 +11,7 @@ public class UserRegistrationProblemUC1 {
     //UC-2 As a User need to enter a valid Last
     //Name - Last name starts with Cap and has minimum 3 characters
 
-    public boolean lastName(String lastname){
+    public boolean lastName(String lastname) {
         String nameRegex = "^[A-Z]{1}[a-z]{2,}$";
         return lastname.matches(nameRegex);
     }
@@ -27,10 +27,30 @@ public class UserRegistrationProblemUC1 {
         return emailID.matches(emailRegex);
     }
 
+    // UC-4 As a User need to follow pre-defined
+    //Mobile Format - E.g. 91 9919819801 - Country code follow by space and 10 digit number
+
+    public boolean phoneNumber(String phoneNumber){
+        String PhoneNumberRegex="^(\\d{2}[- ]?){3}\\d{6}$";
+        return phoneNumber.matches(PhoneNumberRegex);
+    }
+
+    //UC-5 As a User need to follow pre-defined Password rules.
+    //Rule1– minimum 8 Characters - NOTE – All rules must be passed
+    public boolean password(String password){
+        String passwordRegex="[a-zA-z]{8}";
+        return password.matches(passwordRegex);
+    }
     public static void main(String[] args) {
         UserRegistrationProblemUC1 myFirstName = new UserRegistrationProblemUC1();
         System.out.println(myFirstName.firstName("Tom"));// enter first name only 3 characters with first letter Cap
         UserRegistrationProblemUC1 myLastName = new UserRegistrationProblemUC1();
         System.out.println(myLastName.lastName("Ben"));
+        UserRegistrationProblemUC1 myEmailID=new UserRegistrationProblemUC1();
+        System.out.println(myEmailID.emailID("Max.123@gmail.com"));
+        UserRegistrationProblemUC1 myPhoneNumber=new UserRegistrationProblemUC1();
+        System.out.println(myPhoneNumber.phoneNumber("91-9689865476"));
+        UserRegistrationProblemUC1 myPassword=new UserRegistrationProblemUC1();
+        System.out.println(myPassword.password("validate"));
     }
 }

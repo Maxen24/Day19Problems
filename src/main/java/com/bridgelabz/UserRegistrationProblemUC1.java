@@ -38,8 +38,14 @@ public class UserRegistrationProblemUC1 {
     //UC-5 As a User need to follow pre-defined Password rules.
     //Rule1– minimum 8 Characters - NOTE – All rules must be passed
     public boolean password(String password){
-        String passwordRegex="[a-zA-z]{8}";
+        String passwordRegex="[a-z]{8}";
         return password.matches(passwordRegex);
+    }
+    // UC-6 Should have at least 1
+    ///Upper Case - NOTE – All rules must be passed
+    public boolean passwordRule2(String passwordRule2){
+        String passwordRuleRegex="^(?=.*?[A-Z])[a-zA-z]{8}";
+        return passwordRule2.matches(passwordRuleRegex);
     }
     public static void main(String[] args) {
         UserRegistrationProblemUC1 myFirstName = new UserRegistrationProblemUC1();
@@ -52,5 +58,8 @@ public class UserRegistrationProblemUC1 {
         System.out.println(myPhoneNumber.phoneNumber("91-9689865476"));
         UserRegistrationProblemUC1 myPassword=new UserRegistrationProblemUC1();
         System.out.println(myPassword.password("validate"));
+
+        UserRegistrationProblemUC1 myPasswordRule=new UserRegistrationProblemUC1();
+        System.out.println(myPasswordRule.passwordRule2("Validate"));
     }
 }
